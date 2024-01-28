@@ -89,10 +89,12 @@ function endGame(){
 }
 
 // STOP PLAYING SOUND
-function stopSound(soundObj) {
-    soundObj.pause();
-    soundObj.currentTime = 0;
-}
+function stopSound(audio) {
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
 
 // UPDATE ATTEMPT STR UPON KEYPRESS
 function insertLetter(pressedKey) {

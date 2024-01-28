@@ -108,19 +108,22 @@ function endGame(){
 // PLAY/PAUSE ON SPACE PRESS
 document.addEventListener('keydown', event => {
     if (event.code === 'Space') {
+    console.log("space pressed")
       if (audio.paused) {
         audio.play();
       } else {
-        audio.pause();
+        stopSound(activePlayer[1]);
       }
     }
   });
 
 // STOP PLAYING SOUND
-function stopSound(soundObj) {
-    soundObj.pause();
-    soundObj.currentTime = 0;
-}
+function stopSound(audio) {
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
 
 // UPDATE ATTEMPT STR UPON KEYPRESS
 function insertLetter(pressedKey) {
